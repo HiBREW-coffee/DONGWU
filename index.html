@@ -3,119 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HiBREW | 咖喜萃 - 曾秋平 Kenny ZENG</title>
+    <title>HiBREW | Kenny ZENG - 曾秋平</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --brand-red: #B51C28;
-            --dark-grey: #333333;
-            --light-grey: #666666;
-            --bg-color: #F4F4F7;
+            /* Colors based on reference */
+            --main-bg-color: #f7f7f3; /* Light beige/grey from reference */
+            --card-bg-color: #ffffff; /* Pure white card */
+            --logo-red: #B51C28; /* HiBREW Brand Red */
+            --text-main: #333333;
+            --text-sub: #888888;
+            --btn-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --border-radius: 16px;
+            --btn-text-primary: #333333;
+            --btn-text-secondary: #aaaaaa;
+            --wechat-green: #07c160;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--main-bg-color);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            color: var(--dark-grey);
+            color: var(--text-main);
         }
 
-        .container {
-            width: 90%;
-            max-width: 400px;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 40px 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            text-align: center;
+        .page-container {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .logo-section {
-            margin-bottom: 24px;
-        }
-
-        .brand-name {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--brand-red);
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .user-info h1 {
-            font-size: 22px;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        .user-info p {
-            font-size: 14px;
-            color: var(--light-grey);
-            margin: 8px 0 32px;
-        }
-
-        .links {
+        .card {
+            background-color: transparent;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 16px;
-        }
-
-        .btn {
-            display: block;
-            padding: 18px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: transform 0.1s, opacity 0.2s;
-            border: none;
-            cursor: pointer;
-            width: 100%;
+            align-items: center;
+            padding: 40px 20px;
             box-sizing: border-box;
         }
 
-        .btn:active {
-            transform: scale(0.98);
+        /* Header (Logo & Name) */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .btn-primary {
-            background-color: var(--brand-red);
-            color: #ffffff;
-        }
-
-        .btn-secondary {
+        .circular-logo-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             background-color: #ffffff;
-            color: var(--brand-red);
-            border: 2px solid var(--brand-red);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            box-shadow: var(--btn-shadow);
         }
 
+        .circular-logo {
+            width: 50px; /* Red part dimensions */
+            height: 50px;
+            background-color: var(--logo-red);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            color: #ffffff;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .user-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0 0 5px;
+        }
+
+        .user-title {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin: 0;
+        }
+
+        /* Separator from reference */
+        .separator {
+            width: 100%;
+            height: 1px;
+            background-color: #f1f1f1;
+            margin: 0 0 30px;
+            border: none;
+        }
+
+        /* Action Buttons (Cards) */
+        .action-links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing between cards */
+        }
+
+        .action-card {
+            background-color: var(--card-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--btn-shadow);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.1s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .action-card:hover, .action-card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Inner Button Content */
+        .action-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .app-icon {
+            font-size: 24px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wechat-green {
+            color: var(--wechat-green);
+        }
+        
+        .global-icon {
+            color: #6a1b9a;
+        }
+
+        .website-icon {
+            color: #03a9f4;
+        }
+
+        .text-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-main-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--btn-text-primary);
+            margin-bottom: 3px;
+        }
+
+        .btn-sub-text {
+            font-size: 12px;
+            color: var(--btn-text-secondary);
+        }
+
+        .arrow-right {
+            color: #d8d8d8;
+            font-size: 16px;
+        }
+
+        /* Footer */
         .footer {
-            margin-top: 32px;
+            margin-top: 40px;
+            text-align: center;
             font-size: 12px;
             color: #bbbbbb;
+            width: 100%;
         }
 
-        /* Toast message style */
+        /* Toast notification */
         #toast {
             visibility: hidden;
-            min-width: 250px;
+            min-width: 280px;
             background-color: #333;
             color: #fff;
             text-align: center;
             border-radius: 50px;
-            padding: 12px;
+            padding: 12px 16px;
             position: fixed;
-            z-index: 1;
-            bottom: 50px;
+            z-index: 100;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 14px;
             opacity: 0;
             transition: opacity 0.3s, visibility 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         #toast.show {
@@ -126,38 +225,69 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo-section">
-            <div class="brand-name">HiBREW | 咖喜萃</div>
-        </div>
-
-        <div class="user-info">
-            <h1>曾秋平 Kenny ZENG</h1>
-            <p>创始人 / CEO</p>
-        </div>
-
-        <div class="links">
-            <button class="btn btn-primary" onclick="handleWechat('18924821068', 'zh')">
-                添加微信 (WeChat)
-            </button>
+    <div class="page-container">
+        <div class="card">
             
-            <button class="btn btn-primary" onclick="handleWechat('18924821068', 'en')">
-                Add WeChat (Global)
-            </button>
+            <div class="profile-header">
+                <div class="circular-logo-container">
+                    <div class="circular-logo">
+                        <span>Hi</span>
+                    </div>
+                </div>
+                <div class="user-name">曾秋平 — HiBREW</div>
+                <div class="user-title">创始人 / CEO (Founder / CEO)</div>
+            </div>
 
-            <a href="https://www.hibrew.com" target="_blank" class="btn btn-secondary">
-                访问官方网站
-            </a>
-        </div>
+            <hr class="separator">
 
-        <div class="footer">
-            Foshan Shunde Bene Appliance Tech Co., Ltd
+            <div class="action-links">
+                
+                <button class="action-card" id="wechat-btn">
+                    <div class="action-content">
+                        <i class="fab fa-weixin app-icon wechat-green"></i>
+                        <div class="text-block">
+                            <span class="btn-main-text">添加微信</span>
+                            <span class="btn-sub-text">点击复制号码并在微信搜索</span>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </button>
+
+                <button class="action-card" id="wechat-global-btn">
+                    <div class="action-content">
+                        <i class="fas fa-globe app-icon global-icon"></i>
+                        <div class="text-block">
+                            <span class="btn-main-text">Add WeChat (Global)</span>
+                            <span class="btn-sub-text">Tap to copy number and search</span>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </button>
+
+                <a href="https://www.hibrew.com" target="_blank" class="action-card">
+                    <div class="action-content">
+                        <i class="fas fa-globe-asia app-icon website-icon"></i>
+                        <div class="text-block">
+                            <span class="btn-main-text">访问官方网站</span>
+                            <span class="btn-sub-text">www.hibrew.com</span>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </a>
+
+            </div>
+
+            <div class="footer">
+                FOSHAN SHUNDE BENE APPLIANCE TECH CO., LTD
+            </div>
         </div>
     </div>
 
     <div id="toast"></div>
 
     <script>
+        const phoneNumber = '18924821068';
+
         function showToast(msg) {
             const toast = document.getElementById("toast");
             toast.innerText = msg;
@@ -165,26 +295,34 @@
             setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
         }
 
-        function handleWechat(phone, lang) {
-            // Copy to clipboard
+        function copyToClipboard(text) {
             const el = document.createElement('textarea');
-            el.value = phone;
+            el.value = text;
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-
-            const msg = lang === 'zh' 
-                ? "号码已复制！正在打开微信，请粘贴搜索" 
-                : "Number copied! Opening WeChat, please paste to search.";
-            
-            showToast(msg);
-
-            // Attempt to open WeChat after short delay
-            setTimeout(() => {
-                window.location.href = "weixin://";
-            }, 1200);
         }
+
+        function openWeChat() {
+            // Delay a bit to allow reading toast message
+            setTimeout(() => {
+                // Attempt to open WeChat application directly using its URI scheme
+                window.location.href = "weixin://";
+            }, 1200); 
+        }
+
+        document.getElementById('wechat-btn').addEventListener('click', function() {
+            copyToClipboard(phoneNumber);
+            showToast('号码已复制！正在打开微信，请在搜索框粘贴添加。');
+            openWeChat();
+        });
+
+        document.getElementById('wechat-global-btn').addEventListener('click', function() {
+            copyToClipboard(phoneNumber);
+            showToast('Number copied! Opening WeChat, please paste to search and add.');
+            openWeChat();
+        });
     </script>
 </body>
 </html>
